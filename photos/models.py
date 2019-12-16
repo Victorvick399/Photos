@@ -21,8 +21,8 @@ class Category(models.Model):
 class Photos(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField()
-    location = models.ForeignKey(Location, blank=True, null=True, default=0)
-    category = models.ForeignKey(Category,  blank=True, null=True, default=0)
+    location = models.ForeignKey(Location, blank=True, null=True, default=0 ,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,  blank=True, null=True, default=0,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='photos/')
 
     def save_photo(self):
@@ -33,7 +33,7 @@ class Photos(models.Model):
 
     @classmethod
     def search_by_category(cls, search_term):
-        pic_results = cls.objects.filter(category__icontains=search_term)
+        pic_results=cls.objects.filter(category__icontains=search_term)
         return pic_results
 
     class Meta:
