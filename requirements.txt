@@ -7,6 +7,7 @@ Click==7.0
 configparser==4.0.2
 cryptography==2.1.4
 DateTime==4.3
+dj-database-url==0.5.0
 Django==1.11
 dominate==2.4.0
 enum34==1.1.6
@@ -19,6 +20,7 @@ Flask-SimpleMDE==0.3.0
 Flask-SQLAlchemy==2.4.1
 Flask-Uploads==0.2.1
 Flask-WTF==0.14.2
+futures==3.3.0
 gunicorn==19.10.0
 gyp==0.1
 idna==2.6
@@ -36,6 +38,7 @@ pycrypto==2.6.1
 pyflakes==1.6.0
 pygobject==3.26.1
 pylint==1.9.5
+python-decouple==3.3
 pytz==2019.3
 pyxdg==0.25
 SecretStorage==2.3.1
