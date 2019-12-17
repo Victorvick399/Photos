@@ -9,7 +9,7 @@
   {% endif %}
 </div>
 {% for pic in photos %}
-<div class="row" style="font-family: 'Work Sans', sans-serif;">  
+<div class="row" style="font-family: 'Work Sans', sans-serif;">
   <div class="col-md-3 col-sm-6 col-lg-3">
     <div class="card" style="width: 18rem;">
       <a data-toggle="modal" data-target="#{{pic.name}}"><img class="card-img-top image" src="{{pic.image.url}}"
@@ -35,8 +35,8 @@
           <img src="{{pic.image.url}}" class="img-responsive" alt="Image"
             style="width:100%;max-width: 400px; margin: 0 0 10px;">
           <p>{{pic.description}}</p>
-          <button onclick="copyToClipboard('{{image.id}}-url')">Copy</button>
-          <input type="text" class="form-control input-lg " value="http://127.0.0.1:8000{{pic.image.url}}"
+          <button class="btn btn-outline-primary text-centre" onclick="copyToClipboard('{{image.id}}-url')">Copy Image link</button>
+          <input type="text" class="form-control input-lg " value="https://photoblog6.herokuapp.com{{pic.image.url}}"
             id="{{image.id}}-url">
         </div>
         <script>
@@ -50,13 +50,5 @@
       </div>
     </div>
   </div>
-
-
-
-  {% empty %}
-  <div class="row">
-    <h2 class="text-center">There No photos.</h2>
-  </div>
-  {% endfor %}
 </div>
 {% endblock %}
