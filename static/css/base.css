@@ -17,3 +17,6 @@ body{
 .title{
   color: whitesmoke;
 }
+.card{
+  margin-bottom: 10px;
+}
