@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Photos,Category,Location
 
 # Create your views here.
@@ -8,6 +8,8 @@ def home_page(request):
 
 def about_page(request):
     return render(request, 'test.html')
+
+
 
 def search_results(request):
 
