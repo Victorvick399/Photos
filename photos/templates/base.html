@@ -2,33 +2,36 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   {% if title %}
-    <title>{{title}}</title>
+  <title>{{title}}</title>
   {% else %}
-    <title>Photo Blog</title>
+  <title>Photo Blog</title>
   {% endif %}
 
   {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% bootstrap_css %}
+  <link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
-
 </head>
-<body>
-  <div class="container">
-    {% include "navbar.html" %}
 
+<body>
+  <div class="container-fluid">
+    {% include "navbar.html" %}
+    <br>
     {% block content %}
-    
+
 
     {% endblock %}
 
     {% block scripts %}
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      {% bootstrap_javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
     {% endblock %}
   </div>
 </body>
+
 </html>

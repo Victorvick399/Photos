@@ -1,13 +1,13 @@
 {%extends 'base.html'%}
 {% block content %}
-<div class="container">
+<div class="container" style="font-family: 'Work Sans', sans-serif;">
   <div class="row">
     <div class="col-md-6">
       <p> Found here</p>
       {% if photos%}
-        <h2>Found {{ photos|length }} of searched term {{message}}</h2>
+      <h2>Found {{ photos|length }} of searched term {{message}}</h2>
       {% else %}
-        <h2> Found 0 photos for the search term {{message}}</h2>
+      <h2> Found 0 photos for the search term {{message}}</h2>
       {% endif %}
 
     </div>
@@ -15,13 +15,17 @@
     <div class="col-md-6">
 
       {% if photos %}
-        {% for photos in photos %}
-          <div class="col-sm-6 col-md-3">
-            <h1>{{photos.name}}</h1>
-            <p>{{photos.description}}</p>
-            <img src="{{photos.image.url}}" class="img-responsive" alt="Image">
+      {% for pic in photos %}
+      <div class="col-md-3 col-sm-6 col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top image" src="{{pic.image.url}}" alt="Card image cap">
+          <div class="card-body">
+            <h6>{{pic.name}}</h6>
+            <p class="card-text">{{pic.description}}</p>
           </div>
-        {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
       {% endif %}
     </div>
   </div>
