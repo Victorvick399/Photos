@@ -1,13 +1,5 @@
 {%extends 'base.html'%}
 {% block content %}
-<div class="title">
-  <p> Found here</p>
-  {% if photos%}
-  <h2>Found {{ photos|length }} of searched term {{message}}</h2>
-  {% else %}
-  <h2> Found 0 photos for the search term {{message}}</h2>
-  {% endif %}
-</div>
 {% for pic in photos %}
 <div class="row" style="font-family: 'Work Sans', sans-serif;">
   <div class="col-md-3 col-sm-6 col-lg-3">
@@ -35,8 +27,8 @@
           <img src="{{pic.image.url}}" class="img-responsive" alt="Image"
             style="width:100%;max-width: 400px; margin: 0 0 10px;">
           <p>{{pic.description}}</p>
-          <button class="btn btn-outline-primary text-centre" onclick="copyToClipboard('{{image.id}}-url')">Copy Image link</button>
-          <input type="text" class="form-control input-lg " value="https://photoblog6.herokuapp.com{{pic.image.url}}"
+          <button onclick="copyToClipboard('{{image.id}}-url')">Copy</button>
+          <input type="text" class="form-control input-lg " value="http://127.0.0.1:8000{{pic.image.url}}"
             id="{{image.id}}-url">
         </div>
         <script>
@@ -50,5 +42,15 @@
       </div>
     </div>
   </div>
+
+
+
+  {% empty %}
+    {% if photos%}
+      <h2>Found {{ photos|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 photos for the search term {{message}}</h2>
+    {% endif %}
+  {% endfor %}
 </div>
 {% endblock %}
