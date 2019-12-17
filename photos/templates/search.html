@@ -1,13 +1,14 @@
 {%extends 'base.html'%}
 {% block content %}
+<div class="title">
+  <p> Found here</p>
+  {% if photos%}
+  <h2>Found {{ photos|length }} of searched term {{message}}</h2>
+  {% else %}
+  <h2> Found 0 photos for the search term {{message}}</h2>
+  {% endif %}
+</div>
 {% for pic in photos %}
-<p> Found here</p>
-{% if photos%}
-<h2>Found {{ photos|length }} of searched term {{message}}</h2>
-{% else %}
-<h2> Found 0 photos for the search term {{message}}</h2>
-{% endif %} -->
-
 <div class="row" style="font-family: 'Work Sans', sans-serif;">  
   <div class="col-md-3 col-sm-6 col-lg-3">
     <div class="card" style="width: 18rem;">
