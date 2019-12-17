@@ -1,33 +1,61 @@
 {%extends 'base.html'%}
 {% block content %}
-<div class="container" style="font-family: 'Work Sans', sans-serif;">
-  <div class="row">
-    <div class="col-md-6">
-      <p> Found here</p>
-      {% if photos%}
-      <h2>Found {{ photos|length }} of searched term {{message}}</h2>
-      {% else %}
-      <h2> Found 0 photos for the search term {{message}}</h2>
-      {% endif %}
+{% for pic in photos %}
+<p> Found here</p>
+{% if photos%}
+<h2>Found {{ photos|length }} of searched term {{message}}</h2>
+{% else %}
+<h2> Found 0 photos for the search term {{message}}</h2>
+{% endif %} -->
 
-    </div>
-
-    <div class="col-md-6">
-
-      {% if photos %}
-      {% for pic in photos %}
-      <div class="col-md-3 col-sm-6 col-lg-3">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top image" src="{{pic.image.url}}" alt="Card image cap">
-          <div class="card-body">
-            <h6>{{pic.name}}</h6>
-            <p class="card-text">{{pic.description}}</p>
-          </div>
-        </div>
+<div class="row" style="font-family: 'Work Sans', sans-serif;">  
+  <div class="col-md-3 col-sm-6 col-lg-3">
+    <div class="card" style="width: 18rem;">
+      <a data-toggle="modal" data-target="#{{pic.name}}"><img class="card-img-top image" src="{{pic.image.url}}"
+          alt="Card image cap"></a>
+      <div class="card-body">
+        <h6>{{pic.name}}</h6>
       </div>
-      {% endfor %}
-      {% endif %}
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="{{pic.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">{{pic.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="{{pic.image.url}}" class="img-responsive" alt="Image"
+            style="width:100%;max-width: 400px; margin: 0 0 10px;">
+          <p>{{pic.description}}</p>
+          <button onclick="copyToClipboard('{{image.id}}-url')">Copy</button>
+          <input type="text" class="form-control input-lg " value="http://127.0.0.1:8000{{pic.image.url}}"
+            id="{{image.id}}-url">
+        </div>
+        <script>
+          function copyToClipboard(element) {
+            var image = document.getElementById(element)
+            image.select()
+            document.execCommand('copy');
+            alert("You have copied url: " + image.value)
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There No photos.</h2>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}
