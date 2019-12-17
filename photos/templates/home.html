@@ -30,7 +30,7 @@
           <img src="{{pic.image.url}}" class="img-responsive" alt="Image"
             style="width:100%;max-width: 400px; margin: 0 0 10px;">
           <p>{{pic.description}}</p>
-          <button class="btn btn-outline success" onclick="copyToClipboard('{{image.id}}-url')">Copy link addess</button>
+          <button class="btn btn-outline-primary" onclick="copyToClipboard('{{image.id}}-url')">Copy link address</button>
           <input type="text" class="form-control input-lg " value="https://photoblog6.herokuapp.com{{pic.image.url}}"
             id="{{image.id}}-url">
         </div>
