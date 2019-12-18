@@ -32,11 +32,11 @@ class PhotosTestClass(TestCase):
         self.assertTrue(len(photos) < 1)
 
     # # Testing search by category method
-    # def test_search_by_category(self):
-    #     self.pain.save_photo()
-    #     self.emotions.save_category()
-    #     result = Photos.search_by_category('Pain')
-    #     self.assertEqual(self.pain,result)
+    def test_search_by_category(self):
+        self.pain.save_photo()
+        self.emotions.save_category()
+        result = Photos.search_by_category('Pain')
+        self.assertEqual(self.pain,result)
 
     def test_get_image_by_id(self):
         self.pain.save_photo()
