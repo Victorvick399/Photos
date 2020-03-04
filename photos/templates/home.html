@@ -1,6 +1,13 @@
 {%extends 'base.html'%}
 {% block content %}
 {{ block.super}}
+<div class="s_place">
+  <h5>Welcome to Photos your one stop place for all the cool new awesome pics.</h5>
+  <form class="form-inline s_form my-2 my-lg-0" action="{% url 'search_results'%}">
+    <input class="form-control mr-sm-2 input_s" type="search" placeholder="Search for photos" aria-label="Search" name="photos">
+    <button class="form-control btn btn-lg btn-outline-primary my-2 my-sm-0 s_btn" type="submit">Search</button>
+  </form>
+</div>
 <div class="row" style="font-family: 'Work Sans', sans-serif;">
   {% for pic in photos %}
 
@@ -39,7 +46,7 @@
             var image = document.getElementById(element)
             image.select()
             document.execCommand('copy');
-            alert("You have copied url: " + image.value) 
+            alert("You have copied url: " + image.value)
           }
         </script>
       </div>

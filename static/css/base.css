@@ -1,22 +1,57 @@
-h1{
-  color: chartreuse;
-}
-.image{
+.image {
   width: 280px;
   height: 220px;
 }
-.nav{
+
+.nav {
   font-family: 'Lato', sans-serif;
 }
-body{
+
+body {
   background-image: url(https://free4kwallpapers.com/uploads/originals/2015/08/25/website-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-.title{
+
+.title {
   color: whitesmoke;
 }
-.card{
+
+.card {
   margin-bottom: 10px;
+}
+
+.s_place {
+  height: 500px;
+  width: 1000px;
+  background-image: url(https://cdn5.f-cdn.com/contestentries/212081/10921447/5549c4471c049_thumb900.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px 100px 20px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.s_place h5 {
+  color: #FFFFFE;
+  font-size: 40px;
+}
+
+.input_s {
+  margin-top: 180px;
+  margin-bottom: 230px;
+  margin-left: 200px;
+  width: 500px !important;
+  height: 50px !important;
+  padding-left: 70px;
+}
+
+.s_btn {
+  position: absolute;
+  transition: .5s ease;
+  top: 59%;
+  left: 50%;
+  margin-left: 190px;
+
 }
